@@ -1,0 +1,29 @@
+<!-- [{section Header}] -->
+<!-- 	[{loop ModuleHeader}] -->
+<!-- 	[{section Content}]
+		[{section Content end}]
+		[{var content_raw raw}] -->
+<!-- 	[{loop ModuleHeader end}] -->
+<!-- [{section Header end}] -->
+
+<!--[{section Body}]-->
+
+<!--[{include template 'Include.tp4' as named}]-->
+
+<!--[{loop Pane_base}]-->
+<div class="Module [{var classes}]" data-module="[{var definition}]">
+	[{section Content}][{section Content end}][{var content_raw raw}]
+</div>
+<!--[{loop Pane_base end}]-->
+
+<!--[{section Body end}]-->
+
+<!-- [{section Footer}] -->
+<!-- [{loop ModuleFooter}] -->
+<!--
+	[{section Content}]
+	[{section Content end}]
+	[{var content_raw raw}]
+-->
+<!-- [{loop ModuleFooter end}] -->
+<!-- [{section Footer end}] -->

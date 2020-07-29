@@ -1,0 +1,5 @@
+<!--[{loop Pane_base}]-->
+<div data-module="[{var definition}]" class="Module [{var classes}]">
+	[{section Content}][{section Content end}][{var content_raw raw}]
+</div>
+<!--[{loop Pane_base end}]-->

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PHPMD rule set for my project"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+
+  <description>Studyportals PHPMD (next-gen)</description>
+
+  <!-- "Undefined variable" is (better) covered by PHPStan -->
+
+  <rule ref="rulesets/cleancode.xml">
+    <exclude name="UndefinedVariable"/>
+    <exclude name="StaticAccess"/>
+  </rule>
+
+  <rule ref="rulesets/cleancode.xml/StaticAccess">
+    <properties>
+      <property name="exceptions">
+        <value>
+          \Rollbar\Rollbar,
+          \StudyPortals\Cache\CacheEngine,
+          \StudyPortals\Cache\Memcache,
+          \StudyPortals\CMS\ExceptionHandler,
+          \StudyPortals\CMS\Page\Page,
+          \StudyPortals\CMS\Site\Site,
+          \StudyPortals\CMS\Virtual\EntityBuilder,
+          \StudyPortals\CMS\Virtual\VirtualPath,
+          \StudyPortals\Framework\Locale,
+          \StudyPortals\Framework\MaxExecutionTimeManager,
+          \StudyPortals\Meta\Parameters,
+          \StudyPortals\Packer\Packer,
+          \StudyPortals\SxS\SxS,
+          \StudyPortals\Template\Template,
+          \StudyPortals\Utils\HTTP,
+          \StudyPortals\Utils\GodMode,
+          \StudyPortals\Utils\Text,
+          \StudyPortals\Utils\Input,
+          \StudyPortals\Utils\Sanitize,
+          \StudyPortals\CMS\Site\SiteException,
+          \Locale,
+          \StudyPortals\Utils\File,
+          \StudyPortals\Shared\Token\Token,
+          \StudyPortals\Cache\CacheConfigBuilder,
+          \DateTime
+        </value>
+      </property>
+    </properties>
+  </rule>
+
+  <rule ref="rulesets/codesize.xml"/>
+  <rule ref="rulesets/controversial.xml/Superglobals"/>
+  <rule ref="rulesets/design.xml"/>
+  <rule ref="rulesets/unusedcode.xml"/>
+
+  <exclude-pattern>tests\*</exclude-pattern>
+</ruleset>

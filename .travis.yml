@@ -1,0 +1,14 @@
+language: php
+php:
+  - "7.2"
+install:
+  - composer install
+script:
+  - composer phpunit:coverage
+  - composer phpstan
+  - composer phpstan:tests
+  - composer phpcs
+  - composer phpmd
+  - composer phpmd:tests
+before_script:
+  - echo 'error_reporting=E_ALL' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
