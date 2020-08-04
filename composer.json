@@ -1,6 +1,7 @@
 {
   "name": "studyportals/cms",
-  "description": "Studyportals' page and routing package.",
+  "description": "Studyportals' CMS",
+  "license": "BSD-3-Clause",
   "config": {
     "platform": {
       "php": "7.2"
@@ -9,7 +10,6 @@
   "require": {
     "studyportals/template4": "~1.0.2",
     "psr/simple-cache": "~1.0.1",
-    "aws/aws-sdk-php": "~3.64.15",
     "doctrine/cache": "~1.10.0",
     "rollbar/rollbar": "~1.5.3"
   },
@@ -29,7 +29,7 @@
   "scripts": {
     "phpunit": "phpunit",
     "phpunit:coverage": "phpunit --coverage-clover clover.xml",
-    "phpstan": "phpstan analyse --level=max src/",
+    "phpstan": "phpstan analyse src/",
     "phpstan:tests": "phpstan analyse --level=3 tests/",
     "phpcs": "phpcs --colors -p -n src/ tests/",
     "phpcbf": "phpcbf --colors -p -n src/ tests/",
