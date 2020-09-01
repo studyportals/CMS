@@ -4,6 +4,7 @@ namespace StudyPortals\CMS\Page;
 
 use StudyPortals\CMS\Definitions\Hooks\IHookPagePreProcessIncludes;
 use StudyPortals\CMS\Definitions\IAssetProvider;
+use StudyPortals\CMS\PageTree\ISharedAssetProviderProvider;
 use StudyPortals\Template\NodeNotFoundException;
 use StudyPortals\Template\Section;
 use StudyPortals\Template\Template;
@@ -44,8 +45,8 @@ trait PagePresentation
         $this->populateCommonFields($Template);
 
         $pageTree = $this->getPageTree();
-        if ($pageTree instanceof IAssetProvider) {
-            $this->addAssets($pageTree);
+        if ($pageTree instanceof ISharedAssetProviderProvider) {
+            $this->addAssets($pageTree->getSharedAssetProvider());
         }
 
         if ($pageTreeNode instanceof IAssetProvider) {
