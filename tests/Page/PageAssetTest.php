@@ -26,9 +26,9 @@ class PageAssetTest extends PageTestBase
         );
         $template = $this->page->display();
         $this->assertEquals(
-            '<script type="text/javascript" ' .
-            'src="https://www.example.com/test/Mock/Resources/Javascript.js" ' .
-            'packtag="footer"></script>',
+            '<script ' .
+            'src="https://www.example.com/test/Mock/Resources/Javascript.js">' .
+            '</script>',
             (string) ($template->getChildByName('Footer'))
         );
     }

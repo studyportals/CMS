@@ -112,9 +112,8 @@ EOT;
     private static function renderJavascript(): string
     {
         return <<<EOT
-        <script type="text/javascript"
-                src="https://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
-        <script type="text/javascript">
+        <script src="https://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
+        <script>
 
             document.addEvent('domready', function(){
 
@@ -232,7 +231,7 @@ EOT;
     private static function renderStyle(): string
     {
         return <<<EOT
-        <style type="text/css">
+        <style>
             body {
                 font-family: Segoe UI, Arial, sans-serif;
                 cursor: default;

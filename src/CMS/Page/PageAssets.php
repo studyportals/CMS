@@ -217,44 +217,14 @@ trait PageAssets
         $includes_raw = $this->header_includes->getIncludes(Includes::CSS);
         foreach ($includes_raw as $include) {
             $include = $this->cleanInclude($include);
-            $includes[] = "<link rel=\"stylesheet\"
-				href=\"{$include}\" type=\"text/css\">";
+            $includes[] = "<link rel=\"stylesheet\" href=\"{$include}\">";
         }
 
         $includes_raw =
             $this->header_includes->getIncludes(Includes::JAVASCRIPT);
         foreach ($includes_raw as $include) {
             $include = $this->cleanInclude($include);
-            $includes[] = "<script type=\"text/javascript\"
-				src=\"{$include}\" packtag=\"header\"></script>";
-        }
-
-        /*
-         * Promote the usage of addHeaderInclude, but not so that it makes
-         * testing impossible.
-         */
-
-        $js_includes =
-            $this->header_includes->getIncludes(Includes::JAVASCRIPT);
-        if (
-            !empty($js_includes)
-            && defined('DEBUG_MODE')
-            && DEBUG_MODE
-        ) {
-            $count = count($js_includes);
-            $script = '<script type="text/javascript">';
-            $script .= 'if(console){';
-            $script .= "console.warn('%c{$count} scripts still use ";
-            $script .= "addHeaderInclude()!', 'color: red; font-size: x-large;";
-            $script .= "font-weight: bold; font-family: Open Sans, sans-serif');";
-            foreach ($js_includes as $n) {
-                $file = $n;
-                $script .= "console.debug('$file');";
-            }
-            $script .= '}';
-            $script .= '</script>';
-
-            $includes[] = $script;
+            $includes[] = "<script src=\"{$include}\"></script>";
         }
 
         $moduleHeader = $Header->getChildByName('ModuleHeader');
@@ -320,7 +290,7 @@ trait PageAssets
         foreach ($raw_includes as $include) {
             $include = $this->cleanInclude($include);
             $includes[] =
-                "<script type=\"text/javascript\" src=\"{$include}\" packtag=\"footer\"></script>";
+                "<script src=\"{$include}\"></script>";
         }
 
         $moduleFooter->setValue('content_raw', implode('', $includes));
